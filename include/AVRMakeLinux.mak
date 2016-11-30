@@ -1,7 +1,7 @@
 OBJS	= $(CSRCS:.c=.o) $(ASRCS:.S=.o)
 
 ARDUINO	= /usr/share/arduino
-TOOLS	= $(ARDUINO)/hardware/tools/avr/bin
+TOOLS	= $(ARDUINO)/hardware/tools
 GCC	= $(TOOLS)/avr-gcc 
 OBJCOPY	= $(TOOLS)/avr-objcopy 
 OBJDUMP = $(TOOLS)/avr-objdump
@@ -26,7 +26,7 @@ LFLAGS		+= -b115200
 
 BASEDIR		= $(ARDUINO)/hardware
 INCLUDES	= -I"$(BASEDIR)/arduino/avr/variants/standard"
-INCLUDES	+= -I"$(BASEDIR)/tools/avr/avr/include/avr"
-DUDECNF     	= -C"$(BASEDIR)/tools/avr/etc/avrdude.conf"
+INCLUDES	+= -I"$(BASEDIR)/tools/avr"
+DUDECNF     	= -C"$(BASEDIR)/tools/avrdude.conf"
 
 all:	$(TARGET).hex
